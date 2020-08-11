@@ -12,6 +12,7 @@ export PATH=$QT_BASE_DIR/bin:$PATH
 export LD_LIBRARY_PATH=$QT_BASE_DIR/lib/x86_64-linux-gnu:$QT_BASE_DIR/lib:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 
+apt-get update -y
 DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y qt5-gtk-platformtheme
 
 ln -s /home/yuzu/.conan /root
