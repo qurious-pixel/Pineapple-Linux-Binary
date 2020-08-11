@@ -19,15 +19,15 @@ matrix:
       script: 
        - mkdir -p "$HOME/.ccache"
        - docker run -u root -e ENABLE_COMPATIBILITY_REPORTING --env-file .travis/travis-ci.env -v $(pwd):/yuzu -v "$HOME/.ccache":/root/.ccache --name yuzu_appimage quriouspixel/yuzu:latest /bin/bash /yuzu/.travis/docker.sh
-     # after_success:
-     # - ls -al artifacts/
-     # - cd artifacts/
-     # - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-     # - chmod a+x upload.sh
-     # - bash upload.sh yuzu* 
+      after_success:
+      - ls -al artifacts/
+      - cd artifacts/
+      - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+      - chmod a+x upload.sh
+      - bash upload.sh yuzu* 
       branches:
   except:
-   # - /^(?i:continuous.*)$/
+    - /^(?i:continuous.*)$/
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
