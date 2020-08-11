@@ -17,7 +17,6 @@ cd /tmp
 	curl -sLO "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
 	curl -sLO "https://github.com/pineappleEA/Pineapple-Linux-Binary/raw/$BRANCH/.travis/update.tar.gz"
 	tar -xzf update.tar.gz
-	tar -xzf crypto-libs.tar.gz
 	chmod a+x linuxdeployqt*.AppImage
 ./linuxdeployqt-continuous-x86_64.AppImage --appimage-extract
 cd $HOME
