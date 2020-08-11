@@ -12,8 +12,14 @@ export PATH=$QT_BASE_DIR/bin:$PATH
 export LD_LIBRARY_PATH=$QT_BASE_DIR/lib/x86_64-linux-gnu:$QT_BASE_DIR/lib:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 
-apt-get update -y
-DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y qt5-gtk-platformtheme
+apt-get update
+apt-get -y install libgtk2.0-dev
+git clone http://code.qt.io/qt/qtstyleplugins.git
+cd qtstyleplugins
+qmake # be sure to use the one from the Qt installation you are using for the application
+make -j$(nproc)
+make install 
+cd -
 
 ln -s /home/yuzu/.conan /root
 mkdir -p /tmp/source/
